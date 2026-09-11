@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">D308 Vacation Planner</string>
+    <string name="button">Button</string>
+    <string name="vacation_planner">Vacation Planner</string>
+    <string name="airplane_icon">Airplane Icon</string>
+    <string name="plus_sign">Plus Sign</string>
 </resources>
