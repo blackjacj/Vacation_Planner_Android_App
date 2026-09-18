@@ -3,18 +3,16 @@ package com.example.d308vacationplanner.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.LocalDate;
-
 @Entity(tableName = "excursions")
 public class Excursion {
 
     @PrimaryKey(autoGenerate = true)
     private int excursionID;
     private String excursionTitle;
-    private LocalDate excursionDate;
+    private String excursionDate;
     private int vacationID;
 
-    public Excursion(int excursionID, String excursionTitle, LocalDate excursionDate, int vacationID) {
+    public Excursion(int excursionID, String excursionTitle, String excursionDate, int vacationID) {
         this.excursionID = excursionID;
         this.excursionTitle = excursionTitle;
         this.excursionDate = excursionDate;
@@ -37,11 +35,11 @@ public class Excursion {
         this.excursionTitle = excursionTitle;
     }
 
-    public LocalDate getExcursionDate() {
+    public String getExcursionDate() {
         return excursionDate;
     }
 
-    public void setExcursionDate(LocalDate excursionDate) {
+    public void setExcursionDate(String excursionDate) {
         this.excursionDate = excursionDate;
     }
 

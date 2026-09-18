@@ -29,7 +29,8 @@ public class Repository {
         mVacationDAO = db.vacationDAO();
     }
 
-    public List<Vacation>getmAllVacations() throws InterruptedException {
+    // VACATIONS
+    public List<Vacation>getAllVacations() throws InterruptedException {
         databaseExecutor.execute(()->{
             mAllVacations=mVacationDAO.getAllVacations();
         });
@@ -37,6 +38,76 @@ public class Repository {
         Thread.sleep(1000);
 
         return mAllVacations;
+    }
+
+    public void insert(Vacation vacation) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mVacationDAO.insert(vacation);
+        });
+
+        Thread.sleep(1000);
+    }
+
+    public void update(Vacation vacation) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mVacationDAO.update(vacation);
+        });
+
+        Thread.sleep(1000);
+    }
+
+    public void delete(Vacation vacation) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mVacationDAO.delete(vacation);
+        });
+
+        Thread.sleep(1000);
+    }
+
+    // EXCURSIONS
+
+    public List<Excursion>getAllExcursions() throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mAllExcursions=mExcursionDAO.getAllExcursions();
+        });
+
+        Thread.sleep(1000);
+
+        return mAllExcursions;
+    }
+
+    public List<Excursion>getAssociatedExcursions(int VacationID) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mAllExcursions=mExcursionDAO.getAssociatedExcursions(VacationID);
+        });
+
+        Thread.sleep(1000);
+
+        return mAllExcursions;
+    }
+
+    public void insert(Excursion excursion) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mExcursionDAO.insert(excursion);
+        });
+
+        Thread.sleep(1000);
+    }
+
+    public void update(Excursion excursion) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mExcursionDAO.update(excursion);
+        });
+
+        Thread.sleep(1000);
+    }
+
+    public void delete(Excursion excursion) throws InterruptedException {
+        databaseExecutor.execute(()->{
+            mExcursionDAO.delete(excursion);
+        });
+
+        Thread.sleep(1000);
     }
 
 }

@@ -3,8 +3,6 @@ package com.example.d308vacationplanner.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.LocalDate;
-
 @Entity(tableName = "vacations")
 public class Vacation {
 
@@ -12,10 +10,10 @@ public class Vacation {
     private int vacationID;
     private String vacationTitle;
     private String hotelName;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
 
-    public Vacation(int vacationID, String vacationTitle, String hotelName, LocalDate startDate, LocalDate endDate) {
+    public Vacation(int vacationID, String vacationTitle, String hotelName, String startDate, String endDate) {
         this.vacationID = vacationID;
         this.vacationTitle = vacationTitle;
         this.hotelName = hotelName;
@@ -47,19 +45,19 @@ public class Vacation {
         this.hotelName = hotelName;
     }
 
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String  startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public String  getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 }

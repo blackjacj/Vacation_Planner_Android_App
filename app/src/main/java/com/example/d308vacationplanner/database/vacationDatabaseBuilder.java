@@ -5,13 +5,14 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.example.d308vacationplanner.dao.ExcursionDAO;
 import com.example.d308vacationplanner.dao.VacationDAO;
 import com.example.d308vacationplanner.entities.Excursion;
 import com.example.d308vacationplanner.entities.Vacation;
 
-@Database(entities = {Vacation.class, Excursion.class}, version = 1, exportSchema = false)
+@Database(entities = {Vacation.class, Excursion.class}, version = 4, exportSchema = false)
 public abstract class vacationDatabaseBuilder extends RoomDatabase {
 
     public abstract VacationDAO vacationDAO();
