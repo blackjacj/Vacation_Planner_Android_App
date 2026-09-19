@@ -14,11 +14,13 @@ public class Vacation {
     private String endDate;
 
     public Vacation(int vacationID, String vacationTitle, String hotelName, String startDate, String endDate) {
+
         this.vacationID = vacationID;
         this.vacationTitle = vacationTitle;
         this.hotelName = hotelName;
         this.startDate = startDate;
         this.endDate = endDate;
+
     }
 
     public int getVacationID() {
