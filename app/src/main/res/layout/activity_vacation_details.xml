@@ -21,30 +21,82 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="First" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Second" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:text="Vacation Name: " />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Third" />
+                <EditText
+                    android:id="@+id/vacationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="Vacation Name" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Fourth" />
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Fifth" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:text="Hotel: " />
+
+                <EditText
+                    android:id="@+id/hotelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="Hotel Name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:text="Start Date: " />
+
+                <EditText
+                    android:id="@+id/startDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="Start Date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:text="End Date: " />
+
+                <EditText
+                    android:id="@+id/endDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:hint="End Date" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
@@ -58,5 +110,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/add_symbol" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/excursionRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="472dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="201dp"
+        app:layout_constraintTop_toBottomOf="@id/scrollView2"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
