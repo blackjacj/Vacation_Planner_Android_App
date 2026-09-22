@@ -1,6 +1,10 @@
 package com.example.d308vacationplanner.UI;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +35,8 @@ import java.util.Objects;
 public class ExcursionDetails extends AppCompatActivity {
     String name;
     String date;
+    String vacayStart;
+    String vacayEnd;
     int excursionID;
     int vacationID;
     EditText editName;
@@ -54,6 +61,8 @@ public class ExcursionDetails extends AppCompatActivity {
         repository = new Repository(getApplication());
         name = getIntent().getStringExtra("name");
         date = getIntent().getStringExtra("date");
+        vacayStart = getIntent().getStringExtra("startDate");
+        vacayEnd = getIntent().getStringExtra("endDate");
 
         editName = findViewById(R.id.excursionName);
         dateButton = findViewById(R.id.excursionDate);
@@ -123,10 +132,23 @@ public class ExcursionDetails extends AppCompatActivity {
                             vacationID);
 
                     // CHECK IF EXCURSION DATE IS BETWEEN START AND END DATE OF ASSOCIATED VACATION
+                    int index = vacationID - 1;
+                    if (index < 0) {
+                        index = 0;
+                    }
+                    Vacation associatedVacation = repository.getAllVacations().get(index);
                     Date exDate = sdf.parse(dateButton.getText().toString());
+                    Date vacationStart = sdf.parse(associatedVacation.getStartDate());
+                    Date vacationEnd = sdf.parse(associatedVacation.getEndDate());
 
-                    repository.insert(excursion);
-                    this.finish();
+                    if (exDate.before(vacationStart) || exDate.after(vacationEnd)) {
+                        Toast.makeText(ExcursionDetails.this, "Excursion date must be within associated vacation date!", Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                    else {
+                        repository.insert(excursion);
+                        this.finish();
+                    }
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } catch (ParseException e) {
@@ -139,9 +161,27 @@ public class ExcursionDetails extends AppCompatActivity {
                         dateButton.getText().toString(),
                         vacationID);
                 try {
-                    repository.update(excursion);
-                    this.finish();
+                    // CHECK IF EXCURSION DATE IS BETWEEN START AND END DATE OF ASSOCIATED VACATION
+                    int index = vacationID - 1;
+                    if (index < 0) {
+                        index = 0;
+                    }
+                    Vacation associatedVacation = repository.getAllVacations().get(index);
+                    Date exDate = sdf.parse(dateButton.getText().toString());
+                    Date vacationStart = sdf.parse(associatedVacation.getStartDate());
+                    Date vacationEnd = sdf.parse(associatedVacation.getEndDate());
+
+                    if (exDate.before(vacationStart) || exDate.after(vacationEnd)) {
+                        Toast.makeText(ExcursionDetails.this, "Excursion date must be within associated vacation date!", Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                    else {
+                        repository.update(excursion);
+                        this.finish();
+                    }
                 } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -164,6 +204,35 @@ public class ExcursionDetails extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
             }
+        }
+        if (item.getItemId() == R.id.excursionnotify) {
+            String dateFromScreen = dateButton.getText().toString();
+
+            Date myDate = null;
+
+            try {
+                myDate = sdf.parse(dateFromScreen);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                // ALARM MANAGER
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                // START ALERT
+                assert myDate != null;
+                Long trigger = myDate.getTime();
+                String excursionNameStart = name + " is starting!";
+                Intent intent = new Intent(ExcursionDetails.this, MyReceiver.class);
+                intent.putExtra("key", excursionNameStart);
+                PendingIntent sender = PendingIntent.getBroadcast(ExcursionDetails.this, 103, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return true;
+
         }
         return true;
     }
