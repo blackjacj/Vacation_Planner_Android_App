@@ -121,9 +121,15 @@ public class ExcursionDetails extends AppCompatActivity {
                             editName.getText().toString(),
                             dateButton.getText().toString(),
                             vacationID);
+
+                    // CHECK IF EXCURSION DATE IS BETWEEN START AND END DATE OF ASSOCIATED VACATION
+                    Date exDate = sdf.parse(dateButton.getText().toString());
+
                     repository.insert(excursion);
                     this.finish();
                 } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
             }
