@@ -5,6 +5,57 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E2D7D7"
     tools:context=".UI.ExcursionDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A0DAE2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:text="Excursion Name: " />
+
+            <EditText
+                android:id="@+id/excursionName"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="Excursion Name" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:text="Excursion Date: " />
+
+            <Button
+                android:id="@+id/excursionDate"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#2B9033" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

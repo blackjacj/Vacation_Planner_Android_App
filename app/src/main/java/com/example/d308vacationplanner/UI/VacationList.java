@@ -96,14 +96,14 @@ public class VacationList extends AppCompatActivity {
             repository = new Repository(getApplication());
             // Toast.makeText(VacationList.this, "put in sample data", Toast.LENGTH_LONG).show();
             Vacation vacation = new Vacation(1, "Destin, FL",
-                    "Tru by Hilton", "2026/12/5", "2026/12/9");
+                    "Tru by Hilton", "12/05/26", "12/15/26");
             try {
                 repository.insert(vacation);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
-            Excursion excursion = new Excursion(1, "Horseback Riding", "2026/12/6", 1);
+            Excursion excursion = new Excursion(1, "Horseback Riding", "12/06/26", 1);
             try {
                 repository.insert(excursion);
             } catch (InterruptedException e) {

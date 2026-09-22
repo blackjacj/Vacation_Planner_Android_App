@@ -15,6 +15,8 @@ import com.example.d308vacationplanner.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    static int numAlert = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
