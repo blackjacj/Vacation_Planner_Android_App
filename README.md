@@ -36,5 +36,5 @@ Built with Room persistence over SQLite, the application stores vacation and exc
 
 **Jake Black**
 
-- GitHub: [@blackjacj](https://github.com/blackjacj)
+- GitHub: [blackjacj](https://github.com/blackjacj)
 - LinkedIn: [Jake Black](www.linkedin.com/in/blackjacj)
