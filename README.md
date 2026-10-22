@@ -22,7 +22,7 @@ Built with Room persistence over SQLite, the application stores vacation and exc
 - Download app-release.apk on an Android device or emulator!
 
 ## Demo
-![App Demo](./Screenshots/Vacation%20Planner%20Demo%201.gif)
+<img src="./Screenshots/Vacation Planner Demo 1.gif" alt="App Demo" width="400" />
 
 ## Technologies Used
 
