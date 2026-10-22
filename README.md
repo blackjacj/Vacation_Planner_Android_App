@@ -21,6 +21,9 @@ Built with Room persistence over SQLite, the application stores vacation and exc
 ## Test it out [HERE](https://github.com/blackjacj/Android_Vacation_Planner_App_Portfolio/releases/tag/v1.0.0)
 - Download app-release.apk on an Android device or emulator!
 
+## Demo
+![App Demo](./Screenshots/Vacation%20Planner%20Demo%201.gif)
+
 ## Technologies Used
 
 - **Language:** Java
