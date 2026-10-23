@@ -1,4 +1,4 @@
-package com.example.d308vacationplanner.UI;
+package com.example.vacationplanner.UI;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -20,10 +20,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.d308vacationplanner.R;
-import com.example.d308vacationplanner.database.Repository;
-import com.example.d308vacationplanner.entities.Excursion;
-import com.example.d308vacationplanner.entities.Vacation;
+import com.example.vacationplanner.R;
+import com.example.vacationplanner.database.Repository;
+import com.example.vacationplanner.entities.Excursion;
+import com.example.vacationplanner.entities.Vacation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

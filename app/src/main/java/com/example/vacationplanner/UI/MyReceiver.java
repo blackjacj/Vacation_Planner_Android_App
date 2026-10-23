@@ -1,4 +1,4 @@
-package com.example.d308vacationplanner.UI;
+package com.example.vacationplanner.UI;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

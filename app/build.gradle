@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.d308vacationplanner'
+    namespace 'com.example.vacationplanner'
     compileSdk {
         version = release(37)
     }
