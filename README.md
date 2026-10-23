@@ -18,7 +18,7 @@ The Android Vacation Planner is a mobile application developed in Java using And
 
 Built with Room persistence over SQLite, the application stores vacation and excursion data locally on the device. The project was developed, tested, and packaged as a signed APK.
 
-## Test it out [HERE](https://github.com/blackjacj/Android_Vacation_Planner_App_Portfolio/releases/tag/v1.0.0)
+## Test it out [HERE](https://github.com/blackjacj/Vacation_Planner_Android_App/releases/tag/v1.0.0)
 - Download app-release.apk on an Android device or emulator!
 
 ## Demo
